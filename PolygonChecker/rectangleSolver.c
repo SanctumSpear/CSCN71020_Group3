@@ -1,9 +1,8 @@
 #include <stdbool.h>
+#include <stdio.h>
 
-bool checkIfRectangle(int x1, int y1, int x2, int y2, int x3, int y3, int x4, int y4) {
+bool checkIfRectangle(int* xPoints, int* yPoints) {
 	int xConections[] = { 0, 0, 0 };
-	int xPoints[] = { x1, x2, x3, x4 };
-	int yPoints[] = { y1, y2, y3, y4 };
 
 	//1st point checks
 	int check = 0;
@@ -163,5 +162,13 @@ bool checkIfRectangle(int x1, int y1, int x2, int y2, int x3, int y3, int x4, in
 		break;
 	default:
 		break;
+	}
+}
+
+void inputRectangle(int* rectangleX, int* rectangleY) {
+	printf("Input rectangle values (X,Y)\n");
+
+	for (int i = 0; i < 4; i++) {
+		scanf_s("%d %d", &rectangleX[i], &rectangleY[i]);
 	}
 }

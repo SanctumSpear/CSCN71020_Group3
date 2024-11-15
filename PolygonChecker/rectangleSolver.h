@@ -5,4 +5,3 @@ bool checkIfRectangle(int* xPoints, int* yPoints);
 
 void inputRectangle(int* rectangleX, int* rectangleY);
 
-int* getTriangleSides(int* triangleSides);

@@ -1,5 +1,6 @@
 #include <stdbool.h>
 #include <stdio.h>
+#include "utils.h"
 
 bool checkIfRectangle(int* xPoints, int* yPoints) {
 	int xConections[] = { 0, 0, 0 };
@@ -166,9 +167,21 @@ bool checkIfRectangle(int* xPoints, int* yPoints) {
 }
 
 void inputRectangle(int* rectangleX, int* rectangleY) {
-	printf("Input rectangle values seperated by Enter\n");
-
-	for (int i = 0; i < 4; i++) {
-		scanf_s("%d %d", &rectangleX[i], &rectangleY[i]);
+	
+	int result = 0;
+	int firstPass = 0;
+	while (!result) {
+		
+		if (firstPass) {
+			printf("Invalid point entered, try again\n");
+		}
+		else {
+			printf("Input rectangle values seperated by Enter\n");
+		}
+		for (int i = 0; i < 4; i++) {
+			result = scanf_s("%d %d", &rectangleX[i], &rectangleY[i]);
+		}
+		clearInputBuffer();
+		firstPass++;
 	}
 }

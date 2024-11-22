@@ -166,7 +166,7 @@ bool checkIfRectangle(int* xPoints, int* yPoints) {
 }
 
 void inputRectangle(int* rectangleX, int* rectangleY) {
-	printf("Input rectangle values (X,Y)\n");
+	printf("Input rectangle values seperated by Enter\n");
 
 	for (int i = 0; i < 4; i++) {
 		scanf_s("%d %d", &rectangleX[i], &rectangleY[i]);

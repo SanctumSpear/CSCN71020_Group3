@@ -4,165 +4,64 @@
 
 bool checkIfRectangle(int* xPoints, int* yPoints) {
 	int xConections[] = { 0, 0, 0 };
+	int v1[] = { 0,0 };
+	int v2[] = { 0,0 };
+	int v3[] = { 0,0 };
 
 	//1st point checks
-	int check = 0;
-	if (xPoints[0] == xPoints[1]) {
-		check++;
-		xConections[0] = 2;
+	v1[0] = xPoints[1] - xPoints[0];
+	v1[1] = yPoints[1] - yPoints[0];
+	v2[0] = xPoints[2] - xPoints[0];
+	v2[1] = yPoints[2] - yPoints[0];
+	v3[0] = xPoints[3] - xPoints[0];
+	v3[1] = yPoints[3] - yPoints[0];
+	if (dotProduct(v1, v2) == 0 || dotProduct(v2, v3) == 0 || dotProduct(v3, v1) == 0) {
+		return true;
 	}
-	if (xPoints[0] == xPoints[2]) {
-		check++;
-		xConections[0] = 3;
-	}
-	if (xPoints[0] == xPoints[3]) {
-		check++;
-		xConections[0] = 4;
-	}
-	if (check != 1){
-		return false;
-	}
-
-	check = 0;
-	if (yPoints[0] == yPoints[1]) {
-		check++;
-	}
-	if (yPoints[0] == yPoints[2]) {
-		check++;
-	}
-	if (yPoints[0] == yPoints[3]) {
-		check++;
-	}
-	if (check != 1) {
+	else {
 		return false;
 	}
 
 	//2nd point checks
-	check = 0;
-	if (xPoints[1] == xPoints[0]) {
-		check++;
-		xConections[1] = 1;
+	v1[0] = xPoints[0] - xPoints[1];
+	v1[1] = yPoints[0] - yPoints[1];
+	v2[0] = xPoints[2] - xPoints[1];
+	v2[1] = yPoints[2] - yPoints[1];
+	v3[0] = xPoints[3] - xPoints[1];
+	v3[1] = yPoints[3] - yPoints[1];
+	if (dotProduct(v1, v2) == 0 || dotProduct(v2, v3) == 0 || dotProduct(v3, v1) == 0) {
+		return true;
 	}
-	if (xPoints[1] == xPoints[2]) {
-		check++;
-		xConections[1] = 3;
-	}
-	if (xPoints[1] == xPoints[3]) {
-		check++;
-		xConections[1] = 4;
-	}
-	if (check != 1) {
-		return false;
-	}
-
-	check = 0;
-	if (yPoints[1] == yPoints[0]) {
-		check++;
-	}
-	if (yPoints[1] == yPoints[2]) {
-		check++;
-	}
-	if (yPoints[1] == yPoints[3]) {
-		check++;
-	}
-	if (check != 1) {
+	else {
 		return false;
 	}
 
 	//3rd point checks
-	check = 0;
-	if (xPoints[2] == xPoints[0]) {
-		check++;
-		xConections[2] = 1;
+	v1[0] = xPoints[0] - xPoints[2];
+	v1[1] = yPoints[0] - yPoints[2];
+	v2[0] = xPoints[1] - xPoints[2];
+	v2[1] = yPoints[1] - yPoints[2];
+	v3[0] = xPoints[3] - xPoints[2];
+	v3[1] = yPoints[3] - yPoints[2];
+	if (dotProduct(v1, v2) == 0 || dotProduct(v2, v3) == 0 || dotProduct(v3, v1) == 0) {
+		return true;
 	}
-	if (xPoints[2] == xPoints[1]) {
-		check++;
-		xConections[2] = 2;
-	}
-	if (xPoints[2] == xPoints[3]) {
-		check++;
-		xConections[2] = 4;
-	}
-	if (check != 1) {
+	else {
 		return false;
 	}
 
-	check = 0;
-	if (yPoints[2] == yPoints[0]) {
-		check++;
+	//4th point checks
+	v1[0] = xPoints[0] - xPoints[3];
+	v1[1] = yPoints[0] - yPoints[3];
+	v2[0] = xPoints[1] - xPoints[3];
+	v2[1] = yPoints[1] - yPoints[3];
+	v3[0] = xPoints[2] - xPoints[3];
+	v3[1] = yPoints[2] - yPoints[3];
+	if (dotProduct(v1, v2) == 0 || dotProduct(v2, v3) == 0 || dotProduct(v3, v1) == 0) {
+		return true;
 	}
-	if (yPoints[2] == yPoints[1]) {
-		check++;
-	}
-	if (yPoints[2] == yPoints[3]) {
-		check++;
-	}
-	if (check != 1) {
+	else {
 		return false;
-	}
-
-	//same point
-	//1st point
-	switch (xConections[0]) {
-	case 2:
-		if (yPoints[0] == yPoints[1]) {
-			return false;
-		}
-		break;
-	case 3:
-		if (yPoints[0] == yPoints[2]) {
-			return false;
-		}
-		break;
-	case 4:
-		if (yPoints[0] == yPoints[3]) {
-			return false;
-		}
-		break;
-	default:
-		break;
-	}
-
-	//2st point
-	switch (xConections[1]) {
-	case 1:
-		if (yPoints[1] == yPoints[0]) {
-			return false;
-		}
-		break;
-	case 3:
-		if (yPoints[1] == yPoints[2]) {
-			return false;
-		}
-		break;
-	case 4:
-		if (yPoints[1] == yPoints[3]) {
-			return false;
-		}
-		break;
-	default:
-		break;
-	}
-
-	//3rd point
-	switch (xConections[2]) {
-	case 1:
-		if (yPoints[2] == yPoints[0]) {
-			return false;
-		}
-		break;
-	case 2:
-		if (yPoints[2] == yPoints[1]) {
-			return false;
-		}
-		break;
-	case 4:
-		if (yPoints[2] == yPoints[3]) {
-			return false;
-		}
-		break;
-	default:
-		break;
 	}
 }
 

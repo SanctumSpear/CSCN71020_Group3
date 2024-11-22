@@ -26,3 +26,7 @@ void clearInputBuffer() {
 	int c;
 	while ((c = getchar()) != '\n' && c != EOF) {}
 }
+
+int dotProduct(int* p1, int* p2) {
+	return p1[0]*p2[0] + p1[1]*p2[1];
+}

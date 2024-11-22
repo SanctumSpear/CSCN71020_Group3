@@ -176,12 +176,15 @@ void inputRectangle(int* rectangleX, int* rectangleY) {
 			printf("Invalid point entered, try again\n");
 		}
 		else {
-			printf("Input rectangle values seperated by Enter\n");
+			printf("Input rectangle values \n");
 		}
+
 		for (int i = 0; i < 4; i++) {
-			result = scanf_s("%d %d", &rectangleX[i], &rectangleY[i]);
+			printf("Enter X,Y: ");
+			result = scanf_s("%d,%d", &rectangleX[i], &rectangleY[i]);
+			clearInputBuffer();
 		}
-		clearInputBuffer();
+
 		firstPass++;
 	}
 	firstPass = 0;

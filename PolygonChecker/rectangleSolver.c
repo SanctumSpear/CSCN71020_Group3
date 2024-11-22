@@ -184,4 +184,5 @@ void inputRectangle(int* rectangleX, int* rectangleY) {
 		clearInputBuffer();
 		firstPass++;
 	}
+	firstPass = 0;
 }

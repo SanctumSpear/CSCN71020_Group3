@@ -64,7 +64,8 @@ void inputRectangle(int* rectangleX, int* rectangleY) {
 	
 	int result = 0;
 	int firstPass = 0;
-	while (!result) {
+	int check = 2;
+	do {
 		
 		if (firstPass) {
 			printf("Invalid point entered, try again\n");
@@ -76,10 +77,14 @@ void inputRectangle(int* rectangleX, int* rectangleY) {
 		for (int i = 0; i < 4; i++) {
 			printf("Enter X,Y: ");
 			result = scanf_s("%d,%d", &rectangleX[i], &rectangleY[i]);
+			if (result != 2) {
+				check = result;
+			}
 			clearInputBuffer();
 		}
 
 		firstPass++;
-	}
+	} 
+	while (check != 2);
 	firstPass = 0;
 }

@@ -72,4 +72,37 @@ namespace UnitTests
 		}
 
 	};
+
+	TEST_CLASS(validateCheckIfRectangleTests) {
+		TEST_METHOD(checkIfRectangle_ValidRectangle_Test_1) {
+			int xPoints[4] = {1, 2, 2, 1};
+			int yPoints[4] = {2, 1, 2, 1};
+			bool expected = true;
+			Assert::AreEqual(expected, checkIfRectangle(xPoints, yPoints));
+		}
+		TEST_METHOD(checkIfRectangle_ValidRectangle_Test_2) {
+			int xPoints[4] = { 1, -1, 1, -1 };
+			int yPoints[4] = { 1, 1, -1, -1 };
+			bool expected = true;
+			Assert::AreEqual(expected, checkIfRectangle(xPoints, yPoints));
+		}
+		TEST_METHOD(checkIfRectangle_ValidRectangle_Test_3) {
+			int xPoints[4] = { 1, -1, 0, 0 };
+			int yPoints[4] = { 0, 0, 1, -1 };
+			bool expected = true;
+			Assert::AreEqual(expected, checkIfRectangle(xPoints, yPoints));
+		}
+		TEST_METHOD(checkIfRectangle_ValidRectangle_Test_4) {
+			int xPoints[4] = { 0.1, 0.2, 0.1, 0.2 };
+			int yPoints[4] = { 0.1, 0.1, 0.2, 0.2 };
+			bool expected = true;
+			Assert::AreEqual(expected, checkIfRectangle(xPoints, yPoints));
+		}
+		TEST_METHOD(checkIfRectangle_InvalidRectangle_Test_1) {
+			int xPoints[4] = { 1, 20, 2, 1 };
+			int yPoints[4] = { 2, 1, 2, 1 };
+			bool expected = false;
+			Assert::AreEqual(expected, checkIfRectangle(xPoints, yPoints));
+		}
+	};
 }

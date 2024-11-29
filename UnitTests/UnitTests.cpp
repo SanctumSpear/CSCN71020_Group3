@@ -27,7 +27,7 @@ namespace UnitTests
 			// Assert
 			Assert::AreEqual(expected, actual);
 		}
-
+		
 		TEST_METHOD(analyzeTriangle_IsoscelesTriangle_IsIsosceles) {
 			// Arrange
 			int side1 = 6;
@@ -69,6 +69,20 @@ namespace UnitTests
 			// Assert
 			Assert::AreEqual(expected, actual);
 		}
+
+		TEST_METHOD(analyzeTriangle_NegativeSides_IsInvalid) {
+			// Arrange
+			int side1 = -100;
+			int side2 = -24;
+			int side3 = -39;
+			char* expected = "Not a triangle";
+
+			// Act
+			char* actual = analyzeTriangle(side1, side2, side3);
+
+			// Assert
+			Assert::AreEqual(expected, actual);
+		}
 	};
 
 	TEST_CLASS(validateTriangleUnitTests) {
@@ -100,6 +114,35 @@ public:
 		// Assert
 		Assert::AreEqual(expected, actual);
 	}
+
+	TEST_METHOD(validateTriangle_NegativeLengthTriangle_False) {
+		// Arrange
+		int a = -7;
+		int b = -100;
+		int c = -12;
+		bool expected = false;
+
+		// Act
+		bool actual = validateTriangle(a, b, c);
+
+		// Assert
+		Assert::AreEqual(expected, actual);
+	}
+
+	TEST_METHOD(validateTriangle_EqualLengthTriangle_True) {
+		// Arrange
+		int a = 1;
+		int b = 1;
+		int c = 1;
+		bool expected = true;
+
+		// Act
+		bool actual = validateTriangle(a, b, c);
+
+		// Assert
+		Assert::AreEqual(expected, actual);
+	}
+
 	};
 
 	TEST_CLASS(CheckIfRectangleTests) {

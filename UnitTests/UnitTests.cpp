@@ -73,25 +73,25 @@ namespace UnitTests
 	};
 
 	TEST_CLASS(CheckIfRectangleTests) {
-		TEST_METHOD(checkIfRectangle_ValidRectangle_Test_1) {
+		TEST_METHOD(checkIfRectangle_ValidRectangle_True) {
 			int xPoints[4] = {1, 2, 2, 1};
 			int yPoints[4] = {2, 1, 2, 1};
 			bool expected = true;
 			Assert::AreEqual(expected, checkIfRectangle(xPoints, yPoints));
 		}
-		TEST_METHOD(checkIfRectangle_ValidRectangle_Test_2) {
+		TEST_METHOD(checkIfRectangle_ValidRectangle_True) {
 			int xPoints[4] = { 1, -1, 1, -1 };
 			int yPoints[4] = { 1, 1, -1, -1 };
 			bool expected = true;
 			Assert::AreEqual(expected, checkIfRectangle(xPoints, yPoints));
 		}
-		TEST_METHOD(checkIfRectangle_ValidRectangle_Test_3) {
+		TEST_METHOD(checkIfRectangle_ValidRectangle_True) {
 			int xPoints[4] = { 1, -1, 0, 0 };
 			int yPoints[4] = { 0, 0, 1, -1 };
 			bool expected = true;
 			Assert::AreEqual(expected, checkIfRectangle(xPoints, yPoints));
 		}
-		TEST_METHOD(checkIfRectangle_InvalidRectangle_Test_1) {
+		TEST_METHOD(checkIfRectangle_InvalidRectangle_False) {
 			int xPoints[4] = { 1, 20, 2, 1 };
 			int yPoints[4] = { 2, 1, 2, 1 };
 			bool expected = false;

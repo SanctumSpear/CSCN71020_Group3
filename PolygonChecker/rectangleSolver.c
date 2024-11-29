@@ -67,7 +67,7 @@ void inputRectangle(int* rectangleX, int* rectangleY) {
 	int check = 2;
 	do {
 		
-		if (firstPass) {
+		if (firstPass != 0) {
 			printf("Invalid point entered, try again\n");
 		}
 		else {

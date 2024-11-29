@@ -53,11 +53,29 @@ bool validateTriangle(int a, int b, int c) {
 }
 
 int* getTriangleSides(int* triangleSides) {
-	printf_s("Enter the three sides of the triangle: ");
-	for (int i = 0; i < 3; i++)
-	{
-		scanf_s("%d", &triangleSides[i]);
-	}
+	int firstPass = 0;
+	int check = true;
+	int result = 0;
+	do {
+		check = true;
+		if (firstPass != 0) {
+			printf_s("invalid value entered, please try again\n");
+		}
+		else {
+			printf_s("Enter the three sides of the triangle: \n");
+		}
+		
+		for (int i = 0; i < 3; i++)
+		{
+			result = scanf_s("%d", &triangleSides[i]);
+			if (result != 1 || triangleSides[i] <= 0) {
+				check = false;
+			}
+			clearInputBuffer();
+		}
+		firstPass++;
+	} while (!check);
+
 	return triangleSides;
 }
 

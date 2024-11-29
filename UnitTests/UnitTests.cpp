@@ -1,4 +1,3 @@
-#include "pch.h"
 #include "CppUnitTest.h"
 #include <stdbool.h>
 
@@ -89,12 +88,6 @@ namespace UnitTests
 		TEST_METHOD(checkIfRectangle_ValidRectangle_Test_3) {
 			int xPoints[4] = { 1, -1, 0, 0 };
 			int yPoints[4] = { 0, 0, 1, -1 };
-			bool expected = true;
-			Assert::AreEqual(expected, checkIfRectangle(xPoints, yPoints));
-		}
-		TEST_METHOD(checkIfRectangle_ValidRectangle_Test_4) {
-			int xPoints[4] = { 0.1, 0.2, 0.1, 0.2 };
-			int yPoints[4] = { 0.1, 0.1, 0.2, 0.2 };
 			bool expected = true;
 			Assert::AreEqual(expected, checkIfRectangle(xPoints, yPoints));
 		}

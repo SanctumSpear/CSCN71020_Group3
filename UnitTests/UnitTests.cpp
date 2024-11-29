@@ -72,7 +72,7 @@ namespace UnitTests
 
 	};
 
-	TEST_CLASS(validateCheckIfRectangleTests) {
+	TEST_CLASS(CheckIfRectangleTests) {
 		TEST_METHOD(checkIfRectangle_ValidRectangle_Test_1) {
 			int xPoints[4] = {1, 2, 2, 1};
 			int yPoints[4] = {2, 1, 2, 1};

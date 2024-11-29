@@ -146,7 +146,7 @@ public:
 	};
 
 	TEST_CLASS(CheckIfRectangleTests) {
-		TEST_METHOD(checkIfRectangle_ValidRectangle_True) {
+		TEST_METHOD(checkIfRectangle_NormalRectangle_True) {
 			// Arrange
 			int xPoints[4] = { 1, 2, 2, 1 };
 			int yPoints[4] = { 2, 1, 2, 1 };
@@ -159,7 +159,20 @@ public:
 			Assert::AreEqual(expected, actual);
 		}
 
-		TEST_METHOD(checkIfRectangle_NegativePointsRectangle_True) {
+		TEST_METHOD(checkIfRectangle_ZeroRectangle_True) {
+			// Arrange
+			int xPoints[4] = { 0, 2, 2, 0 };
+			int yPoints[4] = { 2, 0, 2, 0 };
+			bool expected = true;
+
+			// Act
+			bool actual = checkIfRectangle(xPoints, yPoints);
+
+			// Assert
+			Assert::AreEqual(expected, actual);
+		}
+
+		TEST_METHOD(checkIfRectangle_NegativeRectangle_True) {
 			// Arrange
 			int xPoints[4] = { 1, -1, 1, -1 };
 			int yPoints[4] = { 1, 1, -1, -1 };
@@ -172,10 +185,49 @@ public:
 			Assert::AreEqual(expected, actual);
 		}
 
-		TEST_METHOD(checkIfRectangle_NegativeAndZeroPointsRectangle_True) {
+		TEST_METHOD(checkIfRectangle_ZeroNegativeRectangle_True) {
+			// Arrange
+			int xPoints[4] = { 0, -1, 0, -1 };
+			int yPoints[4] = { 0, 0, -1, -1 };
+			bool expected = true;
+
+			// Act
+			bool actual = checkIfRectangle(xPoints, yPoints);
+
+			// Assert
+			Assert::AreEqual(expected, actual);
+		}
+
+		TEST_METHOD(checkIfRectangle_ZeroNegativeRotatedRectangle_True) {
 			// Arrange
 			int xPoints[4] = { 1, -1, 0, 0 };
 			int yPoints[4] = { 0, 0, 1, -1 };
+			bool expected = true;
+
+			// Act
+			bool actual = checkIfRectangle(xPoints, yPoints);
+
+			// Assert
+			Assert::AreEqual(expected, actual);
+		}
+
+		TEST_METHOD(checkIfRectangle_ZeroRotatedRectangle_True) {
+			// Arrange
+			int xPoints[4] = { 2, 0, 1, 1 };
+			int yPoints[4] = { 1, 1, 2, 0 };
+			bool expected = true;
+
+			// Act
+			bool actual = checkIfRectangle(xPoints, yPoints);
+
+			// Assert
+			Assert::AreEqual(expected, actual);
+		}
+
+		TEST_METHOD(checkIfRectangle_RotatedRectangle_True) {
+			// Arrange
+			int xPoints[4] = { 3, 1, 2, 2 };
+			int yPoints[4] = { 2, 2, 3, 1 };
 			bool expected = true;
 
 			// Act
@@ -189,6 +241,58 @@ public:
 			// Arrange
 			int xPoints[4] = { 1, 20, 2, 1 };
 			int yPoints[4] = { 2, 1, 2, 1 };
+			bool expected = false;
+
+			// Act
+			bool actual = checkIfRectangle(xPoints, yPoints);
+
+			// Assert
+			Assert::AreEqual(expected, actual);
+		}
+
+		TEST_METHOD(checkIfRectangle_ZeroInvalidRectangle_False) {
+			// Arrange
+			int xPoints[4] = { 0, 3, 2, 0 };
+			int yPoints[4] = { 2, 21, 0, 12 };
+			bool expected = false;
+
+			// Act
+			bool actual = checkIfRectangle(xPoints, yPoints);
+
+			// Assert
+			Assert::AreEqual(expected, actual);
+		}
+
+		TEST_METHOD(checkIfRectangle_NegativeInvalidRectangle_False) {
+			// Arrange
+			int xPoints[4] = { -1, -7, -2, 1 };
+			int yPoints[4] = { 2, 12134, -2, 1 };
+			bool expected = false;
+
+			// Act
+			bool actual = checkIfRectangle(xPoints, yPoints);
+
+			// Assert
+			Assert::AreEqual(expected, actual);
+		}
+
+		TEST_METHOD(checkIfRectangle_ZeroNegativeInvalidRectangle_False) {
+			// Arrange
+			int xPoints[4] = { 0, -30, 2, 0 };
+			int yPoints[4] = { 2, 1, 24, -1 };
+			bool expected = false;
+
+			// Act
+			bool actual = checkIfRectangle(xPoints, yPoints);
+
+			// Assert
+			Assert::AreEqual(expected, actual);
+		}
+
+		TEST_METHOD(checkIfRectangle_EqualPoints_False) {
+			// Arrange
+			int xPoints[4] = { 1, 1, 1, 2 };
+			int yPoints[4] = { 1, 1, 2, 2 };
 			bool expected = false;
 
 			// Act

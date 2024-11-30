@@ -32,10 +32,12 @@ int main() {
 			inputRectangle(rectangleX, rectangleY);
 			if (checkIfRectangle(rectangleX, rectangleY)) {
 				double area = calculateRectangleArea(rectangleX, rectangleY);
-				printf("Shape is a rectangle. Area: %.2f\n", area);
+				double perimeter = getPerimeter(rectangleX, rectangleY);
+				printf("Shape is a rectangle.\nPerimeter: %.2f\nArea: %.2f\n", perimeter, area);
 			}
 			else {
-				printf("Shape is NOT a rectangle\n");
+				double perimeter = getPerimeter(rectangleX, rectangleY);
+				printf("Shape is NOT a rectangle\nPerimeter: %.2f\n", perimeter);
 			}
 			break;
 		default:

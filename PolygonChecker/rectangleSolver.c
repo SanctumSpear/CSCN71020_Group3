@@ -63,9 +63,9 @@ bool checkIfRectangle(int* xPoints, int* yPoints) {
 	}
 }
 
-float getPerimeter(int* xPoints, int* yPoints) {
+double getPerimeter(int* xPoints, int* yPoints) {
 	POINT points[4] = { 0 };
-	int perimeter = 0;
+	double perimeter = 0;
 
 	for (int i = 0; i < 4; i++) {
 		points[i] = creatPoint(xPoints[i], yPoints[i]);

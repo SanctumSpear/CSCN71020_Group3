@@ -7,4 +7,4 @@ void inputRectangle(int* rectangleX, int* rectangleY);
 
 double calculateRectangleArea(int* xPoints, int* yPoints);
 
-float getPerimeter(int* xPoints, int* yPoints);
+double getPerimeter(int* xPoints, int* yPoints);

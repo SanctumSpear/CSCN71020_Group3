@@ -358,4 +358,71 @@ public:
 			Assert::AreEqual(expected, actual);
 		}
 	};
+
+	TEST_CLASS(getPerimeterTests) {
+		TEST_METHOD(getPerimter_PositiveInputs) {
+			// Arrange
+			int xPoints[4] = { 1,1,2,2 };
+			int yPoints[4] = { 1,2,1,2 };
+			int expected = 4;
+
+			// Act
+			int actual = getPerimeter(xPoints, yPoints);
+
+			// Assert
+			Assert::AreEqual(expected, actual);
+		}
+
+		TEST_METHOD(getPerimter_NegativeInputs) {
+			// Arrange
+			int xPoints[4] = { -1,-1,-2,-2 };
+			int yPoints[4] = { -1,-2,-1,-2 };
+			int expected = 4;
+
+			// Act
+			int actual = getPerimeter(xPoints, yPoints);
+
+			// Assert
+			Assert::AreEqual(expected, actual);
+		}
+
+		TEST_METHOD(getPerimter_PositiveZeroInputs) {
+			// Arrange
+			int xPoints[4] = { 0,0,1,1 };
+			int yPoints[4] = { 0,1,0,1 };
+			int expected = 4;
+
+			// Act
+			int actual = getPerimeter(xPoints, yPoints);
+
+			// Assert
+			Assert::AreEqual(expected, actual);
+		}
+
+		TEST_METHOD(getPerimter_NegativeZeroInputs) {
+			// Arrange
+			int xPoints[4] = { -1,-1,0,0 };
+			int yPoints[4] = { -1,0,-1,0 };
+			int expected = 4;
+
+			// Act
+			int actual = getPerimeter(xPoints, yPoints);
+
+			// Assert
+			Assert::AreEqual(expected, actual);
+		}
+
+		TEST_METHOD(getPerimter_PositiveNegativeInputs) {
+			// Arrange
+			int xPoints[4] = { 1,1,-2,-2 };
+			int yPoints[4] = { 1,-2,1,-2 };
+			int expected = 12;
+
+			// Act
+			int actual = getPerimeter(xPoints, yPoints);
+
+			// Assert
+			Assert::AreEqual(expected, actual);
+		}
+	};
 }

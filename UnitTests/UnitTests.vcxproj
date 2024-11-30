@@ -156,6 +156,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\PolygonChecker\point.c" />
     <ClCompile Include="..\PolygonChecker\rectangleSolver.c" />
     <ClCompile Include="..\PolygonChecker\triangleSolver.c" />
     <ClCompile Include="..\PolygonChecker\utils.c" />

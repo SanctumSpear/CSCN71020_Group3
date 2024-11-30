@@ -27,5 +27,8 @@
     <ClCompile Include="..\PolygonChecker\utils.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\PolygonChecker\point.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

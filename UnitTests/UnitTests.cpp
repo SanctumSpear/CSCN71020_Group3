@@ -5,6 +5,7 @@ extern "C" {
 #include "../PolygonChecker/rectangleSolver.h"
 #include "../PolygonChecker/utils.h"
 #include "../PolygonChecker/triangleSolver.h"
+#include "../PolygonChecker/point.h"
 }
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;

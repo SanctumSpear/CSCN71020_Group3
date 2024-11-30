@@ -303,4 +303,59 @@ public:
 			Assert::AreEqual(expected, actual);
 		}
 	};
+
+	TEST_CLASS(CalculateRectangleAreaTests) {
+	public:
+		TEST_METHOD(calculateRectangleArea_PositiveCoordinates_CorrectArea) {
+			// Arrange
+			int xPoints[4] = { 1, 2, 2, 1 };
+			int yPoints[4] = { 2, 1, 2, 1 };
+			double expected = 1.0;
+
+			// Act
+			double actual = calculateRectangleArea(xPoints, yPoints);
+
+			// Assert
+			Assert::AreEqual(expected, actual);
+		}
+
+		TEST_METHOD(calculateRectangleArea_ZeroCoordinates_CorrectArea) {
+			// Arrange
+			int xPoints[4] = { 0, 2, 2, 0 };
+			int yPoints[4] = { 2, 0, 2, 0 };
+			double expected = 4.0;
+
+			// Act
+			double actual = calculateRectangleArea(xPoints, yPoints);
+
+			// Assert
+			Assert::AreEqual(expected, actual);
+		}
+
+		TEST_METHOD(calculateRectangleArea_NegativeCoordinates_CorrectArea) {
+			// Arrange
+			int xPoints[4] = { -1, 1, 1, -1 };
+			int yPoints[4] = { 1, 1, -1, -1 };
+			double expected = 4.0;
+
+			// Act
+			double actual = calculateRectangleArea(xPoints, yPoints);
+
+			// Assert
+			Assert::AreEqual(expected, actual, 0.0001);
+		}
+
+		TEST_METHOD(calculateRectangleArea_LargeCoordinates_CorrectArea) {
+			// Arrange
+			int xPoints[4] = { 1000, 5000, 5000, 1000 };
+			int yPoints[4] = { 2000, 2000, 5000, 5000 };
+			double expected = 12000000.0;
+
+			// Act
+			double actual = calculateRectangleArea(xPoints, yPoints);
+
+			// Assert
+			Assert::AreEqual(expected, actual);
+		}
+	};
 }

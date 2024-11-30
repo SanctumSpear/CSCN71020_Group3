@@ -5,4 +5,4 @@ bool checkIfRectangle(int* xPoints, int* yPoints);
 
 void inputRectangle(int* rectangleX, int* rectangleY);
 
-float getPerimeter(int* xPoints, int* yPoints);
+double calculateRectangleArea(int* xPoints, int* yPoints);

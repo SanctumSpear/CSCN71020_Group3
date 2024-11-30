@@ -36,7 +36,8 @@ int main() {
 			inputRectangle(rectangleX, rectangleY);
 			char* rectResult = checkIfRectangle(&rectangleX, &rectangleY);
 			if (rectResult) {
-				printf("shape is a rectangle");
+				double area = calculateRectangleArea(rectangleX, rectangleY);
+				printf("Shape is a rectangle. Area: %.2f\n", area);
 			}
 			else {
 				printf("Shape is NOT a rectangle");

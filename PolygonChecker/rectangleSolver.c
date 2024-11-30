@@ -109,3 +109,11 @@ void inputRectangle(int* rectangleX, int* rectangleY) {
 	while (check != 2);
 	firstPass = 0;
 }
+
+double calculateRectangleArea(int* xPoints, int* yPoints) {
+
+	double side1 = sqrt(pow(xPoints[1] - xPoints[0], 2) + pow(yPoints[1] - yPoints[0], 2));
+	double side2 = sqrt(pow(xPoints[2] - xPoints[1], 2) + pow(yPoints[2] - yPoints[1], 2));
+
+	return side1 * side2;
+}

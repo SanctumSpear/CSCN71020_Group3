@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdbool.h>
+#define _USE_MATH_DEFINES
 #include <math.h>
 
 #include "triangleSolver.h"
@@ -84,10 +85,11 @@ int* getTriangleAngles(int* triangleSides) {
 	int b = triangleSides[1];
 	int c = triangleSides[2];
 
-	int angleA = acos(((b * b) + (c * c) - (a * a)) / (2 * b * c));
-	int angleB = acos(((a * a) + (c * c) - (b * b)) / (2 * a * c));
-	int angleC = acos(((a * a) + (b * b) - (c * c)) / (2 * a * b));
+	static int angles[ANGLE_ARRAY_SIZE];
 
-	int angles[ANGLE_ARRAY_SIZE] = {angleA, angleB, angleC};
+	angles[0] = (int)round(acos(((double)(b * b) + (c * c) - (a * a)) / (2.0 * b * c)) * 180.0 / M_PI);
+	angles[1] = (int)round(acos(((double)(a * a) + (c * c) - (b * b)) / (2.0 * a * c)) * 180.0 / M_PI);
+	angles[2] = (int)round(acos(((double)(a * a) + (b * b) - (c * c)) / (2.0 * a * b)) * 180.0 / M_PI);
+
 	return angles;
 }

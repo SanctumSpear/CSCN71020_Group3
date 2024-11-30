@@ -111,9 +111,18 @@ void inputRectangle(int* rectangleX, int* rectangleY) {
 }
 
 double calculateRectangleArea(int* xPoints, int* yPoints) {
+	int minX = xPoints[0], maxX = xPoints[0];
+	int minY = yPoints[0], maxY = yPoints[0];
 
-	double side1 = sqrt(pow(xPoints[1] - xPoints[0], 2) + pow(yPoints[1] - yPoints[0], 2));
-	double side2 = sqrt(pow(xPoints[2] - xPoints[1], 2) + pow(yPoints[2] - yPoints[1], 2));
+	for (int i = 1; i < 4; i++) {
+		if (xPoints[i] < minX) minX = xPoints[i];
+		if (xPoints[i] > maxX) maxX = xPoints[i];
+		if (yPoints[i] < minY) minY = yPoints[i];
+		if (yPoints[i] > maxY) maxY = yPoints[i];
+	}
 
-	return side1 * side2;
+	double width = fabs(maxX - minX);
+	double height = fabs(maxY - minY);
+
+	return width * height;
 }

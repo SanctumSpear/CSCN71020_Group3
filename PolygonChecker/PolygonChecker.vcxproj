@@ -140,11 +140,13 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.c" />
+    <ClCompile Include="point.c" />
     <ClCompile Include="rectangleSolver.c" />
     <ClCompile Include="triangleSolver.c" />
     <ClCompile Include="utils.c" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="point.h" />
     <ClInclude Include="utils.h" />
     <ClInclude Include="rectangleSolver.h" />
     <ClInclude Include="triangleSolver.h" />

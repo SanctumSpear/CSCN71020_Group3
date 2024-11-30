@@ -1,6 +1,9 @@
 #include <stdbool.h>
 #include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
 #include "utils.h"
+#include "point.h"
 
 bool checkIfRectangle(int* xPoints, int* yPoints) {
 	int xConections[] = { 0, 0, 0 };
@@ -58,6 +61,24 @@ bool checkIfRectangle(int* xPoints, int* yPoints) {
 	else {
 		return false;
 	}
+}
+
+float getPerimeter(int* xPoints, int* yPoints) {
+	POINT points[4] = { 0 };
+	int perimeter = 0;
+
+	for (int i = 0; i < 4; i++) {
+		points[i] = creatPoint(xPoints[i], yPoints[i]);
+	}
+
+	qsort(points, 4, sizeof(POINT), comparePoints);
+
+	perimeter += sqrt(pow((points[0].x - points[1].x), 2) + pow((points[0].y - points[1].y), 2));
+	perimeter += sqrt(pow((points[0].x - points[2].x), 2) + pow((points[0].y - points[2].y), 2));
+	perimeter += sqrt(pow((points[3].x - points[1].x), 2) + pow((points[3].y - points[1].y), 2));
+	perimeter += sqrt(pow((points[3].x - points[2].x), 2) + pow((points[3].y - points[2].y), 2));
+
+	return perimeter;
 }
 
 void inputRectangle(int* rectangleX, int* rectangleY) {
